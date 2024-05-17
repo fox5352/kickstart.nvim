@@ -11,9 +11,6 @@ return {
     config = function()
       color = 'cyberdream'
       vim.cmd.colorscheme(color)
-
-      vim.api.nvim_set_hl(0, 'Normal', { bg = 'none' })
-      vim.api.nvim_set_hl(0, 'NormalFloat', { bg = 'none' })
     end,
   },
 
@@ -26,7 +23,7 @@ return {
       -- local harpoon = require('harpoon').setup()
 
       vim.keymap.set('n', '<leader>a', function()
-        local harp
+        local harp = require 'harpoon.mark'
         -- harpoon.ui:toggle_quick_menu(harpoon:list())
         harp.add_file()
       end)
