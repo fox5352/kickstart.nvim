@@ -36,7 +36,7 @@ External Requirements:
 > See [Install Recipes](#Install-Recipes) for additional Windows and Linux specific notes
 > and quick install snippets
 
-### Install Kickstart
+### Install My Kickstart
 
 > **NOTE**
 > [Backup](#FAQ) your previous configuration (if any exists)
@@ -57,17 +57,12 @@ fork to your machine using one of the commands below, depending on your OS.
 
 > **NOTE**
 > Your fork's url will be something like this:
-> `https://github.com/<your_github_username>/kickstart.nvim.git`
-
-#### Clone kickstart.nvim
-> **NOTE**
-> If following the recommended step above (i.e., forking the repo), replace
-> `nvim-lua` with `<your_github_username>` in the commands below
+> `https://github.com/fox5352/kickstart.nvim.git`
 
 <details><summary> Linux and Mac </summary>
 
 ```sh
-git clone https://github.com/nvim-lua/kickstart.nvim.git "${XDG_CONFIG_HOME:-$HOME/.config}"/nvim
+git clone https://github.com/fox5352/kickstart.nvim.git "${XDG_CONFIG_HOME:-$HOME/.config}"/nvim
 ```
 
 </details>
@@ -77,13 +72,13 @@ git clone https://github.com/nvim-lua/kickstart.nvim.git "${XDG_CONFIG_HOME:-$HO
 If you're using `cmd.exe`:
 
 ```
-git clone https://github.com/nvim-lua/kickstart.nvim.git %userprofile%\AppData\Local\nvim\
+git clone https://github.com/fox5352/kickstart.nvim.git %userprofile%\AppData\Local\nvim\
 ```
 
 If you're using `powershell.exe`
 
 ```
-git clone https://github.com/nvim-lua/kickstart.nvim.git $env:USERPROFILE\AppData\Local\nvim\
+git clone https://github.com/fox5352/kickstart.nvim.git $env:USERPROFILE\AppData\Local\nvim\
 ```
 
 </details>
@@ -131,12 +126,12 @@ examples of adding popularly requested plugins.
   * The main purpose of kickstart is to serve as a teaching tool and a reference
     configuration that someone can easily use to `git clone` as a basis for their own.
     As you progress in learning Neovim and Lua, you might consider splitting `init.lua`
-    into smaller parts. A fork of kickstart that does this while maintaining the 
+    into smaller parts. A fork of kickstart that does this while maintaining the
     same functionality is available here:
     * [kickstart-modular.nvim](https://github.com/dam9000/kickstart-modular.nvim)
   * Discussions on this topic can be found here:
-    * [Restructure the configuration](https://github.com/nvim-lua/kickstart.nvim/issues/218)
-    * [Reorganize init.lua into a multi-file setup](https://github.com/nvim-lua/kickstart.nvim/pull/473)
+    * [Restructure the configuration](https://github.com/fox5352/kickstart.nvim/issues/218)
+    * [Reorganize init.lua into a multi-file setup](https://github.com/fox5352/kickstart.nvim/pull/473)
 
 ### Install Recipes
 
@@ -226,4 +221,3 @@ sudo dnf install -y gcc make git ripgrep fd-find unzip neovim
 sudo pacman -S --noconfirm --needed gcc make git ripgrep fd unzip neovim
 ```
 </details>
-
