@@ -50,4 +50,11 @@ return {
   },
 
   -- stuff
+
+  {
+    {
+      'cappyzawa/trim.nvim',
+      opts = {},
+    },
+  },
 }
