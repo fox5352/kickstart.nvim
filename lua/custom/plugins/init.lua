@@ -3,17 +3,6 @@
 --
 -- See the kickstart.nvim README for more information
 return {
-  -- colorscheme
-  {
-    'scottmckendry/cyberdream.nvim',
-    lazy = false,
-    priority = 1000,
-    config = function()
-      color = 'cyberdream'
-      vim.cmd.colorscheme(color)
-    end,
-  },
-
   -- harppon
   { 'nvim-lua/plenary.nvim' },
   {
