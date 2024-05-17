@@ -1,10 +1,13 @@
-function colorMeImpressed(color)
-  color = color or 'cyberdream'
+function colorMeImpressed()
+  local colors = { 'cyberdream', 'synthweave', 'dark_flat', 'fluoromachine' }
+
+  math.randomseed(os.time())
+  local color = colors[math.random(1, #colors)]
 
   vim.cmd.colorscheme(color)
 
   -- vim.api.nvim_set_hl(0, 'Normal', { bg = 'none' })
-  vim.api.nvim_set_hl(0, 'NormalFloat', { bg = 'none' })
+  -- vim.api.nvim_set_hl(0, 'NormalFloat', { bg = 'none' })
 end
 
 return {
@@ -29,12 +32,31 @@ return {
       }
     end,
   },
+  { 'sekke276/dark_flat.nvim', lazy = false, priority = 1000 },
   {
     'scottmckendry/cyberdream.nvim',
     lazy = false,
     priority = 1000,
+  },
+  {
+    'samharju/synthweave.nvim',
+    lazy = false, -- make sure we load this during startup if it is your main colorscheme
+    priority = 1000,
+    opts = {
+      transparent = false,
+    },
+  },
+  {
+    'maxmx03/fluoromachine.nvim',
     config = function()
-      colorMeImpressed 'cyberdream'
+      local fm = require 'fluoromachine'
+
+      fm.setup {
+        glow = false,
+        theme = 'fluoromachine',
+      }
+
+      colorMeImpressed()
     end,
   },
 }

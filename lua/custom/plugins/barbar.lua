@@ -61,11 +61,11 @@ return {
         },
       }
 
-      vim.keymap.set('n', '<C-a>', function()
-        cmd 'BufferFirst'
+      vim.keymap.set('n', '<C-h>', function()
+        cmd 'BufferPrevious'
       end)
 
-      vim.keymap.set('n', '<C-d>', function()
+      vim.keymap.set('n', '<C-l>', function()
         cmd 'BufferNext'
       end)
 
