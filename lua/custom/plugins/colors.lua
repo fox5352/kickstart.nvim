@@ -1,5 +1,7 @@
-function colorMeImpressed()
-  local colors = { 'cyberdream', 'synthweave', 'dark_flat', 'fluoromachine' }
+function ColorMeImpressed()
+  local colors = { 'synthweave', 'dark_flat' }
+
+  -- 'cyberdream', 'fluoromachine'
 
   math.randomseed(os.time())
   local color = colors[math.random(1, #colors)]
@@ -43,7 +45,7 @@ return {
     lazy = false, -- make sure we load this during startup if it is your main colorscheme
     priority = 1000,
     opts = {
-      transparent = false,
+      transparent = true,
     },
   },
   {
@@ -52,11 +54,11 @@ return {
       local fm = require 'fluoromachine'
 
       fm.setup {
-        glow = false,
+        glow = true,
         theme = 'fluoromachine',
       }
 
-      colorMeImpressed()
+      ColorMeImpressed()
     end,
   },
 }

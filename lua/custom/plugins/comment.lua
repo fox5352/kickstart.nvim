@@ -4,7 +4,11 @@ return {
 
     config = function()
       vim.keymap.set('v', '<C-/>', function()
-        require('SingleComment').Comment()
+        require('SingleComment').SingleComment()
+      end)
+
+      vim.keymap.set('v', '<C-.', function()
+        require('SingleComment').SingleComment()
       end)
     end,
   },
