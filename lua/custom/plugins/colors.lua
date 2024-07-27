@@ -6,7 +6,7 @@ function ColorMeImpressed()
   math.randomseed(os.time())
   local color = colors[math.random(1, #colors)]
 
-  vim.cmd.colorscheme(color)
+  vim.cmd.colorscheme 'dark_flat'
 
   vim.api.nvim_set_hl(0, 'Normal', { bg = 'none' })
   vim.api.nvim_set_hl(0, 'NormalFloat', { bg = 'none' })
