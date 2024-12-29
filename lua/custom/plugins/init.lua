@@ -36,20 +36,6 @@ return {
       end)
     end,
   },
-  -- md preveiwer
-  {
-    'iamcco/markdown-preview.nvim',
-    cmd = { 'MarkdownPreviewToggle', 'MarkdownPreview', 'MarkdownPreviewStop' },
-    ft = { 'markdown' },
-    build = function()
-      vim.fn['mkdp#util#install']()
-    end,
-    config = function()
-      vim.keymap.set('n', '<leader>md', function()
-        vim.cmd 'MarkdownPreviewToggle'
-      end)
-    end,
-  },
   -- FIX: discord
   -- {
   --   'vyfor/cord.nvim',
@@ -70,25 +56,77 @@ return {
     'windwp/nvim-ts-autotag',
     opts = {
       -- Defaults
-      enable_close = true,           -- Auto close tags
-      enable_rename = true,          -- Auto rename pairs of tags
+      enable_close = true, -- Auto close tags
+      enable_rename = true, -- Auto rename pairs of tags
       enable_close_on_slash = false, -- Auto close on trailing </
     },
   },
 
-  -- tabnine plugin
+  -- BUG: doesnt work on windows tabnine plugin
+  -- {
+  --   'codota/tabnine-nvim',
+  --   build = './dl_binaries.sh',
+  --   config = function()
+  --     require('tabnine').setup {
+  --       disable_auto_comment = true,
+  --       accept_keymap = '<C-Tab>',
+  --       dismiss_keymap = '<C-n>',
+  --       debounce_ms = 800,
+  --       suggestion_color = { gui = '#708050', cterm = 244 },
+  --       exclude_filetypes = { 'TelescopePrompt', 'NvimTree' },
+  --       log_file_path = nil, -- absolute path to Tabnine log file
+  --     }
+  --   end,
+  -- },
+
   {
-    'codota/tabnine-nvim',
-    build = './dl_binaries.sh',
+    'Exafunction/codeium.nvim',
+    dependencies = {
+      'nvim-lua/plenary.nvim',
+      'hrsh7th/nvim-cmp',
+    },
     config = function()
-      require('tabnine').setup {
-        disable_auto_comment = true,
-        accept_keymap = '<Tab>',
-        dismiss_keymap = '<C-n>',
-        debounce_ms = 800,
-        suggestion_color = { gui = '#808080', cterm = 244 },
-        exclude_filetypes = { 'TelescopePrompt', 'NvimTree' },
-        log_file_path = nil, -- absolute path to Tabnine log file
+      require('codeium').setup {
+        -- Optionally disable cmp source if using virtual text only
+        enable_cmp_source = false,
+        virtual_text = {
+          enabled = true,
+
+          -- These are the defaults
+
+          -- Set to true if you never want completions to be shown automatically.
+          manual = false,
+          -- A mapping of filetype to true or false, to enable virtual text.
+          filetypes = {},
+          -- Whether to enable virtual text of not for filetypes not specifically listed above.
+          default_filetype_enabled = true,
+          -- How long to wait (in ms) before requesting completions after typing stops.
+          idle_delay = 75,
+          -- Priority of the virtual text. This usually ensures that the completions appear on top of
+          -- other plugins that also add virtual text, such as LSP inlay hints, but can be modified if
+          -- desired.
+          virtual_text_priority = 65535,
+          -- Set to false to disable all key bindings for managing completions.
+          map_keys = true,
+          -- The key to press when hitting the accept keybinding but no completion is showing.
+          -- Defaults to \t normally or <c-n> when a popup is showing.
+          accept_fallback = nil,
+          -- Key bindings for managing completions in virtual text mode.
+          key_bindings = {
+            -- Accept the current completion.
+            accept = '<C-a>',
+            -- Accept the next word.
+            accept_word = false,
+            -- Accept the next line.
+            accept_line = false,
+            -- Clear the virtual text.
+            clear = false,
+            -- Cycle to the next completion.
+            next = '<C-n>',
+            -- Cycle to the previous completion.
+            prev = '<C-p>',
+          },
+        },
       }
     end,
   },
