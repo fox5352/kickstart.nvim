@@ -23,15 +23,6 @@ return {
       end)
     end,
   },
-
-  -- notify plugin
-  {
-    'rcarriga/nvim-notify',
-    config = function()
-      vim.notify = require 'notify'
-    end,
-  },
-  -- live server
   {
     'barrett-ruth/live-server.nvim',
     build = 'npm add -g live-server',
@@ -59,13 +50,13 @@ return {
       end)
     end,
   },
-  -- discord
-  {
-    'vyfor/cord.nvim',
-    build = './build',
-    event = 'VeryLazy',
-    opts = {},
-  },
+  -- FIX: discord
+  -- {
+  --   'vyfor/cord.nvim',
+  --   build = './build',
+  --   event = 'VeryLazy',
+  --   opts = {},
+  -- },
 
   -- stuff
   {
@@ -79,8 +70,8 @@ return {
     'windwp/nvim-ts-autotag',
     opts = {
       -- Defaults
-      enable_close = true, -- Auto close tags
-      enable_rename = true, -- Auto rename pairs of tags
+      enable_close = true,           -- Auto close tags
+      enable_rename = true,          -- Auto rename pairs of tags
       enable_close_on_slash = false, -- Auto close on trailing </
     },
   },
